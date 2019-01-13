@@ -12,4 +12,13 @@ ActiveAdmin.register Project do
 #   permitted
 # end
 
+  form do |f|
+    f.inputs do
+      f.input :admin_user_id, input_html: { disabled: true,  value: current_admin_user.id }
+      f.input :name, as: :text
+    end
+
+    f.actions
+  end
+
 end

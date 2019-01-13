@@ -1,0 +1,2 @@
+class ProjectyStatusLog < ApplicationRecord
+end

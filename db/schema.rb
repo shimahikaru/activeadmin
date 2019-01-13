@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_042933) do
+ActiveRecord::Schema.define(version: 2019_01_13_072054) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -53,5 +53,14 @@ ActiveRecord::Schema.define(version: 2019_01_13_042933) do
     t.index ["admin_user_id"], name: "fk_rails_e170a60eae"
   end
 
+  create_table "projecty_status_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.integer "status", limit: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_projecty_status_logs_on_project_id"
+  end
+
   add_foreign_key "projects", "admin_users"
+  add_foreign_key "projecty_status_logs", "projects"
 end
