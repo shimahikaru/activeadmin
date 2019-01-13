@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_071430) do
+ActiveRecord::Schema.define(version: 2019_01_13_042933) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -45,4 +45,13 @@ ActiveRecord::Schema.define(version: 2019_01_09_071430) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "admin_user_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_user_id"], name: "fk_rails_e170a60eae"
+  end
+
+  add_foreign_key "projects", "admin_users"
 end
