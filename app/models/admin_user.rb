@@ -4,4 +4,12 @@ class AdminUser < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
   has_many :projects
+
+  after_create :create_action
+  binding.pry
+  private
+
+ def create_action
+  binding.pry
+ end
 end

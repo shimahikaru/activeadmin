@@ -25,4 +25,8 @@ ActiveAdmin.register AdminUser do
     f.actions
   end
 
+    action_item(:show, only: :show) do
+      link_to 'プロジェクト作成', new_admin_project_path(admin_user_id: resource.id)
+  end
+
 end
